@@ -1,12 +1,271 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html><html lang="en">
 <head>
-<title>Proposal Experience</title>
-</head>
-<body style="text-align:center;background:linear-gradient(to right,pink,orange);padding-top:100px;font-family:Arial;">
-<h1>Will you forever be mine?</h1>
-<h2>Adeena Noor ❤️</h2>
-<p>From: Ali Raza 💕</p><button onclick="alert('Yayyy ❤️')">Yes ❤️</button>
-<button>No 😶</button>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Small Question 💖</title><style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
 
-</body>
-</html>
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffd6e7,#ffe8c7,#d9f4ff);
+    overflow:hidden;
+}
+
+.page{
+    display:none;
+    width:90%;
+    max-width:500px;
+}
+
+.active{
+    display:block;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+h1{
+    color:#ff4f8b;
+    margin-bottom:15px;
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+button{
+    border:none;
+    padding:14px 22px;
+    border-radius:15px;
+    margin:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.yes{
+    background:#ff5d9e;
+    color:white;
+}
+
+.maybe{
+    background:#ddd;
+}
+
+.option{
+    display:block;
+    width:100%;
+    background:#ffd6e7;
+    margin-top:10px;
+}
+
+input[type="date"]{
+    width:100%;
+    padding:12px;
+    border-radius:12px;
+    border:2px solid #ddd;
+    margin-top:15px;
+}
+
+.final{
+    font-size:22px;
+    line-height:1.7;
+}
+
+.heart{
+    position:fixed;
+    top:-20px;
+    font-size:20px;
+    animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+</style></head><body><form id="meetupForm"
+action="https://formsubmit.co/ali.razahr2005@gmail.com"
+method="POST"><input type="hidden" name="_subject" value="New Meetup Response 💖">
+<input type="hidden" name="_captcha" value="false"><input type="hidden" name="Question1" id="q1">
+<input type="hidden" name="Activity" id="activity">
+<input type="hidden" name="Date" id="dateValue">
+<input type="hidden" name="Time" id="timeValue"><!-- PAGE 1 --><div class="page active" id="page1">
+<div class="card">
+<h1>👋 Hi Cutie</h1>
+<h2>I have a small question for you 😊</h2><button type="button" class="yes"
+onclick="answer1('Yes')">
+❤️ Yes
+</button>
+
+<button type="button" class="maybe"
+onclick="answer1('Maybe Later')">
+🌸 Maybe Later
+</button>
+
+</div>
+</div><!-- PAGE 2 --><div class="page" id="page2">
+<div class="card">
+<h2>✨ Let's meet sometime ✨</h2><button type="button" class="option"
+onclick="selectActivity('Breakfast 🥞')">
+🥞 Breakfast
+</button>
+
+<button type="button" class="option"
+onclick="selectActivity('Lunch 🍔')">
+🍔 Lunch
+</button>
+
+<button type="button" class="option"
+onclick="selectActivity('Dinner 🍽️')">
+🍽️ Dinner
+</button>
+
+<button type="button" class="option"
+onclick="selectActivity('Coffee ☕')">
+☕ Coffee
+</button>
+
+<button type="button" class="option"
+onclick="selectActivity('Walk & Chat 🚶')">
+🚶 Walk & Chat
+</button>
+
+</div>
+</div><!-- PAGE 3 --><div class="page" id="page3">
+<div class="card"><h2>📅 Pick a Date</h2><input
+type="date"
+id="datePicker"
+min="2026-07-21">
+
+<br><br>
+
+<button
+type="button"
+class="yes"
+onclick="saveDate()">
+Continue ❤️
+</button>
+
+</div>
+</div><!-- PAGE 4 --><div class="page" id="page4">
+<div class="card"><h2>⏰ Pick a Time</h2><button type="button" class="option"
+onclick="selectTime('10:00 AM')">
+10:00 AM
+</button>
+
+<button type="button" class="option"
+onclick="selectTime('2:00 PM')">
+2:00 PM
+</button>
+
+<button type="button" class="option"
+onclick="selectTime('5:00 PM')">
+5:00 PM
+</button>
+
+<button type="button" class="option"
+onclick="selectTime('7:00 PM')">
+7:00 PM
+</button>
+
+</div>
+</div><!-- PAGE 5 --><div class="page" id="page5">
+<div class="card"><div class="final">
+💖 Thank You So Much!<br><br>Looking forward to meeting you,<br>
+
+Insha'Allah 👀✨<br><br>
+
+🌷 Have a wonderful day!
+
+</div><br><button type="submit" class="yes">
+Send Response ❤️
+</button></div>
+</div></form><script>
+
+function hearts(){
+for(let i=0;i<20;i++){
+
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=
+(Math.random()*2+2)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},3000);
+}
+}
+
+function show(id){
+document.querySelectorAll(".page")
+.forEach(p=>p.classList.remove("active"));
+
+document.getElementById(id)
+.classList.add("active");
+}
+
+function answer1(value){
+document.getElementById("q1").value=value;
+hearts();
+show("page2");
+}
+
+function selectActivity(value){
+document.getElementById("activity").value=value;
+hearts();
+show("page3");
+}
+
+function saveDate(){
+
+let date=
+document.getElementById("datePicker").value;
+
+if(!date){
+alert("Please choose a date 😊");
+return;
+}
+
+document.getElementById("dateValue").value=date;
+
+hearts();
+
+show("page4");
+}
+
+function selectTime(value){
+
+document.getElementById("timeValue").value=value;
+
+hearts();
+
+show("page5");
+}
+
+</script></body>
+  </html>
